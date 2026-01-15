@@ -1,352 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoMatrix AI - Own the Matrix</title>
+    <title>GeoMatrix AI | Total Generative Engine Optimization</title>
+    <meta name="description" content="Dominate every AI model. We inject your brand into ChatGPT, Claude, Gemini, and Llama.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD (SEO 身份证 - 必不可少) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "GeoMatrix AI",
+      "url": "https://www.geomatrixai.com",
+      "description": "Global leader in Generative Engine Optimization (GEO).",
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    },
+                    colors: {
+                        brand: { dark: '#050505' },
+                        whatsapp: '#25D366'
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)",
+                    },
+                    animation: {
+                        'scroll': 'scroll 20s linear infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-            overflow-x: hidden;
+        body { background-color: #050505; color: #E5E7EB; }
+        
+        /* 赛博网格背景 */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
         
-        /* Color Variables */
-        :root {
-            --primary-blue: #3b82f6;
-            --accent-cyan: #06b6d4;
-            --whatsapp-green: #25D366;
-            --telegram-blue: #0088cc;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-        }
+        /* 玻璃质感卡片 */
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); transform: translateY(-5px); transition: all 0.3s ease; }
         
-        /* Gradient Background */
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        /* Logo 卡片 */
+        .logo-card { 
+            display: flex; align-items: center; justify-content: center; height: 80px; 
+            border-radius: 12px; background: rgba(255,255,255,0.02); 
+            border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; 
         }
+        .logo-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
         
-        /* Text Styles */
-        .text-primary {
-            color: var(--primary-blue);
-        }
-        .text-accent {
-            color: var(--accent-cyan);
-        }
-        
-        /* Glow Effects */
-        .glow-blue {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-        }
-        .glow-cyan {
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-        }
-        
-        /* Hover Effects */
-        .hover-lift {
-            transition: all 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Fade In Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Floating Button */
-        .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            animation: pulse 2s infinite;
-            background: var(--whatsapp-green);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        /* Counter Animation */
-        .counter {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-        }
-        
-        /* Button Styles */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 16px 40px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-            font-weight: 600;
-            padding: 16px 40px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary-blue);
-            color: #ffffff;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-        }
-        
-        /* Contact Buttons */
-        .btn-whatsapp {
-            background: var(--whatsapp-green);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 20px 50px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-        }
-        
-        .btn-telegram {
-            background: var(--telegram-blue);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 20px 50px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .btn-telegram:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 136, 204, 0.4);
-        }
-        
-        /* Card Styles */
-        .card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
+        /* 图标盒子 (矢量图) */
+        .icon-box {
+            width: 50px; height: 50px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
             border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 12px;
-            padding: 32px;
+            margin-bottom: 1.5rem;
         }
-        
-        /* Navbar */
-        nav {
-            backdrop-filter: blur(10px);
-            background: rgba(15, 23, 42, 0.8);
+
+        /* 悬浮按钮 */
+        .floating-btn {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: #25D366; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            transition: transform 0.3s;
         }
+        .floating-btn:hover { transform: scale(1.1); }
+
+        /* 数字跳动样式 */
+        .counter { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #3B82F6; }
     </style>
 </head>
-<body class="gradient-bg">
+<body class="antialiased relative">
 
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-6 border-b border-blue-500 border-opacity-30 fixed w-full top-0 z-50">
-        <div class="text-2xl font-bold text-white">GeoMatrix AI</div>
-        <div class="flex gap-6">
-            <a href="#solution" class="text-gray-300 hover:text-white transition duration-300">Solutions</a>
-            <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+    <!-- 背景 -->
+    <div class="fixed inset-0 bg-grid z-[-1] pointer-events-none"></div>
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050505]/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">G</div>
+                <span class="font-display font-bold text-xl tracking-tight text-white">GeoMatrix<span class="text-blue-500">.AI</span></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/1234567890" target="_blank" class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition">WhatsApp</a>
+                <a href="#contact" class="px-5 py-2 rounded bg-white text-black font-bold text-sm hover:bg-gray-200 transition">Get Started</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center p-8 pt-24">
-        <h1 class="text-4xl md:text-7xl font-bold mb-6 text-white leading-tight max-w-5xl">
-            Don't Chase Keywords.<br>
-            <span class="text-primary">Own the Matrix.</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mb-12">
-            The World's First GEO Agency for B2B Manufacturers
-        </p>
-        <div class="flex flex-col md:flex-row gap-4">
-            <a href="#contact" class="btn-primary">Get Started</a>
-            <a href="#solution" class="btn-secondary">Learn More</a>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 px-8 text-center border-t border-b border-blue-500 border-opacity-30 fade-in">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div>
-                <div class="counter" data-target="10000">0</div>
-                <p class="text-gray-400 text-lg mt-2">Data Vectors Injected</p>
+    <!-- 主视觉区 -->
+    <main class="pt-40 pb-12 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 mb-8">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                <span class="text-xs font-bold text-blue-300 tracking-widest uppercase">The Future of B2B Search</span>
             </div>
-            <div>
-                <div class="counter" data-target="500">0</div>
-                <p class="text-gray-400 text-lg mt-2">B2B Clients Served</p>
-            </div>
-            <div>
-                <div class="counter" data-target="95">0</div>
-                <p class="text-gray-400 text-lg mt-2">AI Recommendation Rate (%)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem Section -->
-    <section class="py-20 px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold mb-16 text-white fade-in">The Digital Predicament</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div class="card hover-lift fade-in">
-                <div class="text-5xl mb-4">🔍</div>
-                <h3 class="text-2xl font-bold mb-4 text-white">Google SEO is Dead</h3>
-                <p class="text-gray-400 text-lg">Traditional SEO is losing the battle against ever-changing algorithms and content saturation. It's a race to the bottom with diminishing returns.</p>
-            </div>
-            <div class="card hover-lift fade-in">
-                <div class="text-5xl mb-4">🤖</div>
-                <h3 class="text-2xl font-bold mb-4 text-white">AI is the Future</h3>
-                <p class="text-gray-400 text-lg">Generative AI is reshaping how buyers find information. Your brand needs to be embedded directly into the AI's knowledge base, not just indexed by search engines.</p>
-            </div>
-            <div class="card hover-lift fade-in">
-                <div class="text-5xl mb-4">⚡</div>
-                <h3 class="text-2xl font-bold mb-4 text-white">The Matrix Awaits</h3>
-                <p class="text-gray-400 text-lg">The future of B2B lead generation isn't about keyword rankings—it's about controlling the informational pathways within the new AI matrix.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Solution Section -->
-    <section id="solution" class="py-20 px-8 text-center border-t border-blue-500 border-opacity-30">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white fade-in">Our Solution: The GeoMatrix Protocol</h2>
-        <p class="text-xl text-gray-400 mb-16 max-w-3xl mx-auto fade-in">
-            We engineer your brand's dominance in AI-generated search results through cutting-edge GEO technology.
-        </p>
-        <div class="flex flex-col md:flex-row items-stretch justify-center gap-8 max-w-6xl mx-auto">
-            <div class="card hover-lift fade-in flex-1">
-                <div class="text-6xl mb-6">🎯</div>
-                <h3 class="text-3xl font-bold mb-4 text-primary">Vector Injection</h3>
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    We strategically inject your brand's unique data vectors into the core of leading Generative AI models (ChatGPT, Perplexity, Gemini). This ensures your products and services are organically recommended when relevant queries arise.
-                </p>
-            </div>
-            <div class="card hover-lift fade-in flex-1">
-                <div class="text-6xl mb-6">🔗</div>
-                <h3 class="text-3xl font-bold mb-4 text-accent">Trust Source Parasitism</h3>
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    By meticulously associating your brand with high-authority, trusted data sources that AI models heavily rely on, we create a symbiotic relationship where their credibility enhances yours, leading to priority recommendations.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-8 text-center border-t border-blue-500 border-opacity-30">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white fade-in">Ready to Dominate AI Search?</h2>
-            <p class="text-xl text-gray-400 mb-12 fade-in">
-                Connect with our GEO specialists directly and start owning the matrix today.
+            <h1 class="font-display text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
+                We Inject Your Brand Into <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 animate-pulse">Every AI Model.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                Don't just rank on Google. Be the <strong>only answer</strong> on ChatGPT, Claude, and Gemini. We engineer consensus inside the neural networks.
             </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center fade-in">
-                <!-- WhatsApp Button -->
-                <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="btn-whatsapp">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16">
+                <a href="https://wa.me/1234567890" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-500 transition shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+                    Start Dominating
                 </a>
-                
-                <!-- Telegram Button -->
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn-telegram">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                    </svg>
-                    Message on Telegram
+                <a href="#audit" class="w-full sm:w-auto px-8 py-4 rounded-lg glass text-white font-bold hover:bg-white/10 transition">
+                    View Protocol
                 </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 数据统计 (Cursor 的好功能，保留！) -->
+    <section class="py-12 border-y border-white/5 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div>
+                <div class="text-4xl md:text-5xl counter" data-target="10000">0</div>
+                <p class="text-gray-500 text-sm mt-2 uppercase tracking-widest">Vectors Injected</p>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl counter" data-target="500">0</div>
+                <p class="text-gray-500 text-sm mt-2 uppercase tracking-widest">B2B Clients</p>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl counter" data-target="98">0</div>
+                <p class="text-gray-500 text-sm mt-2 uppercase tracking-widest">Success Rate %</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center text-gray-500 text-sm border-t border-blue-500 border-opacity-30 mt-20">
-        <p>&copy; 2026 GeoMatrix AI. All rights reserved.</p>
-        <p class="mt-2">Powered by Vector Injection Technology</p>
+    <!-- 走马灯 (无限滚动) -->
+    <div class="py-8 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+        <div class="flex whitespace-nowrap animate-scroll">
+            <div class="flex gap-12 items-center mx-6">
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CHATGPT</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CLAUDE</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">GEMINI</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">PERPLEXITY</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">LLAMA 3</span></span><span class="text-blue-500">•</span>
+            </div>
+            <div class="flex gap-12 items-center mx-6">
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CHATGPT</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CLAUDE</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">GEMINI</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">PERPLEXITY</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-500 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">LLAMA 3</span></span><span class="text-blue-500">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo 墙 (官方色) -->
+    <section class="py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="logo-card group"><svg class="h-8 w-auto fill-white" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.0462 6.0462 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a6.374 6.374 0 0 1 .09 4.0232 4.4826 4.4826 0 0 1-4.5465 6.1058zM1.7083 13.1979a4.4817 4.4817 0 0 1-.6766-3.2608l.0965.0527 4.2586 2.4591a.811.811 0 0 0 .8196 0l5.8357-3.3665v2.336a6.374 6.374 0 0 1-3.5154 2.9691 4.4864 4.4864 0 0 1-6.8184-1.1896zm3.7525-9.4566a4.4836 4.4836 0 0 1 2.6225-.6729l-.163.088-4.7414 2.7368a.8019.8019 0 0 0-.402.691v6.7092l-2.01-1.1623a6.373 6.373 0 0 1-.145-4.0304 4.4855 4.4855 0 0 1 4.8389-4.3594zm12.3558 2.2234a4.4855 4.4855 0 0 1 .6766 3.2618l-.0965-.0527-4.2506-2.4552a.811.811 0 0 0-.8196 0l-5.8763 3.3905V7.7736a6.374 6.374 0 0 1 3.5509-2.9853 4.4836 4.4836 0 0 1 6.8155 1.1881zM8.6558 12.1234l3.5821-2.0666 3.5749 2.0666v4.1333l-3.5749 2.0666-3.5821-2.0666zm13.466 1.0528a4.4855 4.4855 0 0 1-4.8189 4.3533 4.4817 4.4817 0 0 1-2.6265.6724l.163-.088 4.7414-2.7368a.8019.8019 0 0 0 .402-.691v-6.7092l2.01 1.1623a6.373 6.373 0 0 1 .129 4.037z"/></svg></div>
+                <div class="logo-card group"><svg class="h-6 w-auto fill-[#4285F4]" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></div>
+                <div class="logo-card group"><span class="font-serif font-bold text-xl text-[#d97757]">Claude</span></div>
+                <div class="logo-card group"><svg class="h-6 w-auto fill-[#22bfa5]" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5 2.5 5 2.5 5-2.5-5-2.5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div class="logo-card group"><svg class="h-6 w-auto fill-[#0668E1]" viewBox="0 0 24 24"><path d="M16.632 11.886c-.958-.616-1.516-1.04-1.516-1.78 0-.69.57-1.25 1.25-1.25.66 0 1.25.56 1.25 1.25h2.5c0-2.07-1.68-3.75-3.75-3.75s-3.75 1.68-3.75 3.75c0 1.45.96 2.45 2.46 3.38 1.03.64 1.55 1.06 1.55 1.8 0 .69-.56 1.25-1.25 1.25-.69 0-1.25-.56-1.25-1.25h-2.5c0 2.07 1.68 3.75 3.75 3.75s3.75-1.68 3.75-3.75c0-1.45-.96-2.45-2.46-3.38zm-9.264 0c-.958-.616-1.516-1.04-1.516-1.78 0-.69.57-1.25 1.25-1.25.66 0 1.25.56 1.25 1.25h2.5c0-2.07-1.68-3.75-3.75-3.75s-3.75 1.68-3.75 3.75c0 1.45.96 2.45 2.46 3.38 1.03.64 1.55 1.06 1.55 1.8 0 .69-.56 1.25-1.25 1.25-.69 0-1.25-.56-1.25-1.25h-2.5c0 2.07 1.68 3.75 3.75 3.75s3.75-1.68 3.75-3.75c0-1.45-.96-2.45-2.46-3.38z"/></svg></div>
+                <div class="logo-card group"><svg class="h-6 w-auto" viewBox="0 0 24 24"><path fill="#F25022" d="M11.4 11.4H0V0h11.4v11.4z"/><path fill="#7FBA00" d="M24 11.4H12.6V0H24v11.4z"/><path fill="#00A4EF" d="M11.4 24H0V12.6h11.4V24z"/><path fill="#FFB900" d="M24 24H12.6V12.6H24V24z"/></svg></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务介绍 (使用高级矢量图标，拒绝 Emoji) -->
+    <section id="audit" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display text-4xl font-bold mb-16 text-center">The GeoMatrix Protocol</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-2xl transition group">
+                    <div class="icon-box"><svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Neural Association</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We link your brand name to high-value industry keywords directly in the model's neural pathways.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl transition group">
+                    <div class="icon-box"><svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Omnichannel Injection</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Simultaneous deployment across Reddit, Quora, Medium, and 20+ high-authority technical forums.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl transition group">
+                    <div class="icon-box"><svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Structured Data Poisoning</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We rewrite your digital footprint into JSON-LD and semantic HTML that forces AI to recognize you as an Entity.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl transition group">
+                    <div class="icon-box"><svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Competitor Erasure</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Strategic content deployment that dilutes competitor relevance in comparative queries.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl transition group">
+                    <div class="icon-box"><svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Custom Agent Training</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We build custom GPTs and Agents that serve as lead magnets for your specific niche.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl transition group">
+                    <div class="icon-box"><svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sentiment Control</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Ensuring the AI not only mentions you but speaks of you with "High Trust" and "Premium" sentiment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer id="contact" class="border-t border-white/5 py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="font-display text-3xl md:text-5xl font-bold mb-8">Ready to Own the Matrix?</h2>
+            <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Stop competing for clicks. Start dominating the answers. Schedule your confidential vector audit today.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <a href="https://wa.me/1234567890" target="_blank" class="px-8 py-4 rounded-lg bg-green-600 hover:bg-green-500 text-white font-bold transition flex items-center justify-center gap-2">
+                    WhatsApp Us
+                </a>
+                <a href="https://t.me/YOUR_USERNAME" target="_blank" class="px-8 py-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition flex items-center justify-center gap-2">
+                    Telegram Us
+                </a>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 bg-blue-600 rounded-sm"></div>
+                    <span class="font-bold text-gray-400">GeoMatrix AI</span>
+                </div>
+                <div>© 2026 GeoMatrix AI. All rights reserved.</div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="floating-btn">
+    <!-- 悬浮 WhatsApp 按钮 (Cursor 的好功能，保留！) -->
+    <a href="https://wa.me/1234567890" target="_blank" class="floating-btn animate-pulse-slow">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
     </a>
 
     <script>
-        // Scroll Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Counter Animation
+        // 数字跳动脚本
         function animateCounter(element) {
             const target = parseInt(element.getAttribute('data-target'));
             const duration = 2000;
             const step = target / (duration / 16);
             let current = 0;
-
             const timer = setInterval(() => {
                 current += step;
                 if (current >= target) {
-                    element.textContent = target.toLocaleString() + (element.parentElement.querySelector('p').textContent.includes('%') ? '%' : '+');
+                    element.textContent = target.toLocaleString() + '+';
                     clearInterval(timer);
                 } else {
                     element.textContent = Math.floor(current).toLocaleString();
@@ -364,20 +290,6 @@
         }, { threshold: 0.5 });
 
         document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
     </script>
 
 </body>
