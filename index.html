@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,51 +7,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
-            background-color: #000000;
-            color: #00FF00;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
             overflow-x: hidden;
         }
         
-        /* Matrix Canvas Background */
-        #matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
+        /* Color Variables */
+        :root {
+            --primary-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --whatsapp-green: #25D366;
+            --telegram-blue: #0088cc;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
         }
         
-        /* Neon Colors */
-        .text-neon-green {
-            color: #39FF14;
-            text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14;
-        }
-        .text-electric-blue {
-            color: #00FFFF;
-            text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
-        }
-        .bg-neon-green {
-            background-color: #39FF14;
-        }
-        .bg-electric-blue {
-            background-color: #00FFFF;
-        }
-        .border-neon {
-            border-color: #39FF14;
-        }
-        .border-electric {
-            border-color: #00FFFF;
+        /* Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         }
         
-        /* Glowing Effects */
-        .glow-neon {
-            box-shadow: 0 0 20px #39FF14, 0 0 40px #39FF14;
+        /* Text Styles */
+        .text-primary {
+            color: var(--primary-blue);
         }
-        .glow-electric {
-            box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+        .text-accent {
+            color: var(--accent-cyan);
+        }
+        
+        /* Glow Effects */
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
         }
         
         /* Hover Effects */
@@ -59,7 +49,8 @@
             transition: all 0.3s ease;
         }
         .hover-lift:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
         }
         
         /* Fade In Animation */
@@ -87,6 +78,8 @@
             justify-content: center;
             cursor: pointer;
             animation: pulse 2s infinite;
+            background: var(--whatsapp-green);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
         
         @keyframes pulse {
@@ -94,241 +87,239 @@
             50% { transform: scale(1.1); }
         }
         
-        /* Typewriter Effect */
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid #39FF14;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #39FF14 }
-        }
-        
         /* Counter Animation */
         .counter {
             font-size: 3rem;
             font-weight: bold;
-        }
-        
-        /* Form Input Styles */
-        input, textarea {
-            background-color: #0a0a0a;
-            border: 2px solid #39FF14;
-            color: #39FF14;
-            padding: 12px;
-            width: 100%;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #00FFFF;
-            box-shadow: 0 0 20px #00FFFF;
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: #39FF1480;
+            color: var(--primary-blue);
         }
         
         /* Button Styles */
         .btn-primary {
-            background: linear-gradient(135deg, #39FF14 0%, #00FFFF 100%);
-            color: #000;
-            font-weight: bold;
-            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 16px 40px;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            font-size: 14px;
         }
         
         .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px #39FF14, 0 0 60px #00FFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
         }
         
         .btn-secondary {
             background: transparent;
-            border: 2px solid #00FFFF;
-            color: #00FFFF;
-            font-weight: bold;
-            padding: 14px 32px;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            font-size: 14px;
         }
         
         .btn-secondary:hover {
-            background: #00FFFF;
-            color: #000;
-            box-shadow: 0 0 30px #00FFFF;
+            background: var(--primary-blue);
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Contact Buttons */
+        .btn-whatsapp {
+            background: var(--whatsapp-green);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 20px 50px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-telegram {
+            background: var(--telegram-blue);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 20px 50px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-telegram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 136, 204, 0.4);
+        }
+        
+        /* Card Styles */
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        
+        /* Navbar */
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
         }
     </style>
 </head>
-<body class="bg-black text-neon-green">
-
-    <!-- Matrix Background Canvas -->
-    <canvas id="matrix-bg"></canvas>
+<body class="gradient-bg">
 
     <!-- Navbar -->
-    <nav class="flex justify-between items-center p-6 border-b-2 border-neon fixed w-full top-0 bg-black bg-opacity-90 z-50">
-        <div class="text-2xl font-bold text-neon-green">GeoMatrix AI</div>
+    <nav class="flex justify-between items-center p-6 border-b border-blue-500 border-opacity-30 fixed w-full top-0 z-50">
+        <div class="text-2xl font-bold text-white">GeoMatrix AI</div>
         <div class="flex gap-6">
-            <a href="#solution" class="text-electric-blue hover:text-white transition duration-300">方案</a>
-            <a href="#contact" class="text-electric-blue hover:text-white transition duration-300">联系我们</a>
+            <a href="#solution" class="text-gray-300 hover:text-white transition duration-300">Solutions</a>
+            <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center items-center text-center p-8 pt-24">
-        <h1 class="text-4xl md:text-7xl font-bold mb-4 text-neon-green leading-tight max-w-5xl">
-            Don't Chase Keywords.<br>Own the Matrix.
+        <h1 class="text-4xl md:text-7xl font-bold mb-6 text-white leading-tight max-w-5xl">
+            Don't Chase Keywords.<br>
+            <span class="text-primary">Own the Matrix.</span>
         </h1>
-        <p class="text-xl md:text-2xl text-electric-blue max-w-3xl mb-8">
-            The World's First GEO Agency for B2B Manufacturers.
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mb-12">
+            The World's First GEO Agency for B2B Manufacturers
         </p>
-        <div class="flex flex-col md:flex-row gap-4 mt-8">
-            <a href="#contact" class="btn-primary">免费咨询</a>
-            <a href="#solution" class="btn-secondary">查看方案</a>
+        <div class="flex flex-col md:flex-row gap-4">
+            <a href="#contact" class="btn-primary">Get Started</a>
+            <a href="#solution" class="btn-secondary">Learn More</a>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 px-8 text-center border-t-2 border-b-2 border-electric fade-in">
+    <section class="py-16 px-8 text-center border-t border-b border-blue-500 border-opacity-30 fade-in">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             <div>
-                <div class="counter text-neon-green" data-target="10000">0</div>
-                <p class="text-electric-blue text-lg mt-2">数据向量已植入</p>
+                <div class="counter" data-target="10000">0</div>
+                <p class="text-gray-400 text-lg mt-2">Data Vectors Injected</p>
             </div>
             <div>
-                <div class="counter text-neon-green" data-target="500">0</div>
-                <p class="text-electric-blue text-lg mt-2">B2B 客户服务中</p>
+                <div class="counter" data-target="500">0</div>
+                <p class="text-gray-400 text-lg mt-2">B2B Clients Served</p>
             </div>
             <div>
-                <div class="counter text-neon-green" data-target="95">0</div>
-                <p class="text-electric-blue text-lg mt-2">AI 推荐率 (%)</p>
+                <div class="counter" data-target="95">0</div>
+                <p class="text-gray-400 text-lg mt-2">AI Recommendation Rate (%)</p>
             </div>
         </div>
     </section>
 
     <!-- The Problem Section -->
-    <section class="py-16 px-8 bg-gray-900 text-center border-b-2 border-electric">
-        <h2 class="text-4xl font-bold mb-12 text-neon-green fade-in">The Current Digital Predicament</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div class="p-6 rounded-lg border-2 border-neon bg-gray-950 hover-lift fade-in">
-                <h3 class="text-2xl font-bold mb-4 text-neon-green">Google SEO is Dead</h3>
-                <p class="text-electric-blue text-lg">传统 SEO 在不断变化的算法和内容饱和中节节败退。这是一场收益递减的竞赛。</p>
+    <section class="py-20 px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-16 text-white fade-in">The Digital Predicament</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="card hover-lift fade-in">
+                <div class="text-5xl mb-4">🔍</div>
+                <h3 class="text-2xl font-bold mb-4 text-white">Google SEO is Dead</h3>
+                <p class="text-gray-400 text-lg">Traditional SEO is losing the battle against ever-changing algorithms and content saturation. It's a race to the bottom with diminishing returns.</p>
             </div>
-            <div class="p-6 rounded-lg border-2 border-neon bg-gray-950 hover-lift fade-in">
-                <h3 class="text-2xl font-bold mb-4 text-neon-green">AI is the Future</h3>
-                <p class="text-electric-blue text-lg">生成式 AI 正在重塑买家获取信息的方式。你的品牌需要直接嵌入 AI 的知识库，而不仅仅是被搜索引擎索引。</p>
+            <div class="card hover-lift fade-in">
+                <div class="text-5xl mb-4">🤖</div>
+                <h3 class="text-2xl font-bold mb-4 text-white">AI is the Future</h3>
+                <p class="text-gray-400 text-lg">Generative AI is reshaping how buyers find information. Your brand needs to be embedded directly into the AI's knowledge base, not just indexed by search engines.</p>
             </div>
-            <div class="p-6 rounded-lg border-2 border-neon bg-gray-950 hover-lift fade-in">
-                <h3 class="text-2xl font-bold mb-4 text-neon-green">The Matrix Awaits</h3>
-                <p class="text-electric-blue text-lg">B2B 获客的未来不是关键词排名，而是控制新 AI 矩阵中的信息路径。</p>
+            <div class="card hover-lift fade-in">
+                <div class="text-5xl mb-4">⚡</div>
+                <h3 class="text-2xl font-bold mb-4 text-white">The Matrix Awaits</h3>
+                <p class="text-gray-400 text-lg">The future of B2B lead generation isn't about keyword rankings—it's about controlling the informational pathways within the new AI matrix.</p>
             </div>
         </div>
     </section>
 
     <!-- Our Solution Section -->
-    <section id="solution" class="py-16 px-8 text-center">
-        <h2 class="text-4xl font-bold mb-12 text-neon-green fade-in">Our Solution: The GeoMatrix Protocol</h2>
-        <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
-            <div class="max-w-md p-8 rounded-lg border-2 border-electric bg-gray-950 hover-lift fade-in">
-                <div class="text-5xl mb-4">🎯</div>
-                <h3 class="text-3xl font-bold mb-4 text-electric-blue">Vector Injection</h3>
-                <p class="text-neon-green text-lg">我们战略性地将您品牌的独特数据向量注入到领先的生成式 AI 模型（ChatGPT、Perplexity、Gemini）核心。确保在相关查询出现时，您的产品和服务被有机推荐。</p>
+    <section id="solution" class="py-20 px-8 text-center border-t border-blue-500 border-opacity-30">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white fade-in">Our Solution: The GeoMatrix Protocol</h2>
+        <p class="text-xl text-gray-400 mb-16 max-w-3xl mx-auto fade-in">
+            We engineer your brand's dominance in AI-generated search results through cutting-edge GEO technology.
+        </p>
+        <div class="flex flex-col md:flex-row items-stretch justify-center gap-8 max-w-6xl mx-auto">
+            <div class="card hover-lift fade-in flex-1">
+                <div class="text-6xl mb-6">🎯</div>
+                <h3 class="text-3xl font-bold mb-4 text-primary">Vector Injection</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    We strategically inject your brand's unique data vectors into the core of leading Generative AI models (ChatGPT, Perplexity, Gemini). This ensures your products and services are organically recommended when relevant queries arise.
+                </p>
             </div>
-            <div class="max-w-md p-8 rounded-lg border-2 border-electric bg-gray-950 hover-lift fade-in">
-                <div class="text-5xl mb-4">🔗</div>
-                <h3 class="text-3xl font-bold mb-4 text-electric-blue">Trust Source Parasitism</h3>
-                <p class="text-neon-green text-lg">通过精心将您的品牌与 AI 模型高度依赖的高权威、可信数据源关联，我们创建一种寄生关系，他们的可信度增强您的可信度，从而获得优先推荐。</p>
+            <div class="card hover-lift fade-in flex-1">
+                <div class="text-6xl mb-6">🔗</div>
+                <h3 class="text-3xl font-bold mb-4 text-accent">Trust Source Parasitism</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    By meticulously associating your brand with high-authority, trusted data sources that AI models heavily rely on, we create a symbiotic relationship where their credibility enhances yours, leading to priority recommendations.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 px-8 bg-gray-900 border-t-2 border-electric">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-4xl font-bold mb-8 text-center text-neon-green fade-in">Contact Us - Ascend the Matrix</h2>
-            <form id="contact-form" class="fade-in">
-                <input type="text" name="company" placeholder="公司名称 *" required>
-                <input type="text" name="name" placeholder="联系人姓名 *" required>
-                <input type="email" name="email" placeholder="商务邮箱 *" required>
-                <input type="tel" name="phone" placeholder="WhatsApp / 电话">
-                <textarea name="message" placeholder="您的需求描述 *" rows="5" required></textarea>
-                <button type="submit" class="btn-primary w-full">立即对接 GeoMatrix</button>
-            </form>
-            <div id="form-message" class="mt-4 text-center text-electric-blue"></div>
+    <section id="contact" class="py-20 px-8 text-center border-t border-blue-500 border-opacity-30">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white fade-in">Ready to Dominate AI Search?</h2>
+            <p class="text-xl text-gray-400 mb-12 fade-in">
+                Connect with our GEO specialists directly and start owning the matrix today.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center fade-in">
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="btn-whatsapp">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Chat on WhatsApp
+                </a>
+                
+                <!-- Telegram Button -->
+                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn-telegram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                    </svg>
+                    Message on Telegram
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center text-gray-600 text-sm border-t-2 border-neon">
-        <p class="text-electric-blue">&copy; 2026 GeoMatrix AI. All rights reserved.</p>
-        <p class="text-neon-green mt-2">Powered by Vector Injection Technology</p>
+    <footer class="py-8 text-center text-gray-500 text-sm border-t border-blue-500 border-opacity-30 mt-20">
+        <p>&copy; 2026 GeoMatrix AI. All rights reserved.</p>
+        <p class="mt-2">Powered by Vector Injection Technology</p>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="floating-btn bg-neon-green glow-neon">
-        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="floating-btn">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
     </a>
 
     <script>
-        // Matrix Rain Effect
-        const canvas = document.getElementById('matrix-bg');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = [];
-
-        for (let x = 0; x < columns; x++) {
-            drops[x] = Math.random() * canvas.height;
-        }
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#39FF14';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = matrix.charAt(Math.floor(Math.random() * matrix.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 35);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
         // Scroll Animation
         const observerOptions = {
             threshold: 0.1,
@@ -373,28 +364,6 @@
         }, { threshold: 0.5 });
 
         document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-        // Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // 这里可以集成实际的邮件发送服务（EmailJS、Formspree等）
-            console.log('Form Data:', data);
-            
-            // 模拟提交
-            const messageDiv = document.getElementById('form-message');
-            messageDiv.textContent = '✓ 提交成功！我们将在24小时内与您联系。';
-            messageDiv.style.color = '#39FF14';
-            
-            this.reset();
-            
-            setTimeout(() => {
-                messageDiv.textContent = '';
-            }, 5000);
-        });
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
