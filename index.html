@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoMatrix AI | The Generative Engine Optimization Agency</title>
+    <meta name="description" content="We help B2B manufacturers rank on ChatGPT, Perplexity, and Gemini. The future of search is GEO.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script>
@@ -12,15 +13,9 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            primary: '#3B82F6',
-                            accent: '#8B5CF6'
-                        }
+                        brand: { dark: '#0B0F19', primary: '#3B82F6', accent: '#8B5CF6' }
                     },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                    },
+                    animation: { 'blob': 'blob 7s infinite' },
                     keyframes: {
                         blob: {
                             '0%': { transform: 'translate(0px, 0px) scale(1)' },
@@ -35,25 +30,17 @@
     </script>
     <style>
         body { background-color: #0B0F19; color: white; }
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #60A5FA, #A78BFA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-strong { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .text-gradient { background: linear-gradient(to right, #60A5FA, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Background Glow Effects -->
+    <!-- Background Glow -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-4000"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
     </div>
 
     <!-- Navbar -->
@@ -63,7 +50,7 @@
                 <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
                 <span class="font-bold text-xl tracking-tight">GeoMatrix AI</span>
             </div>
-            <a href="mailto:contact@geomatrixai.com" class="hidden md:block px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition text-sm font-medium">
+            <a href="mailto:contact@geomatrixai.com" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition text-sm font-medium">
                 Contact Us
             </a>
         </div>
@@ -76,19 +63,16 @@
                 <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                 <span class="text-xs font-medium text-gray-300 tracking-wide uppercase">The Future of B2B Search</span>
             </div>
-            
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
                 Stop Ranking on Google.<br>
                 Start Existing in <span class="text-gradient">AI Models.</span>
             </h1>
-            
             <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
                 Traditional SEO is dying. We specialize in <strong>GEO (Generative Engine Optimization)</strong>. We inject your brand directly into the vector databases of ChatGPT, Perplexity, and Gemini.
             </p>
-
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#services" class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition shadow-lg shadow-blue-500/25">
-                    Explore Our Protocols
+                <a href="#comparison" class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition shadow-lg shadow-blue-500/25">
+                    Why SEO Failed
                 </a>
                 <a href="mailto:contact@geomatrixai.com" class="px-8 py-4 rounded-xl glass hover:bg-white/5 transition font-medium">
                     Schedule Audit
@@ -97,65 +81,124 @@
         </div>
     </main>
 
-    <!-- Stats / Trust -->
+    <!-- Stats -->
     <section class="border-y border-white/5 bg-white/[0.02]">
         <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-3xl font-bold text-white mb-1">300%</div>
-                <div class="text-sm text-gray-500">Visibility Increase</div>
-            </div>
-            <div>
-                <div class="text-3xl font-bold text-white mb-1">Top 1</div>
-                <div class="text-sm text-gray-500">AI Recommendation</div>
-            </div>
-            <div>
-                <div class="text-3xl font-bold text-white mb-1">B2B</div>
-                <div class="text-sm text-gray-500">Specialized Focus</div>
-            </div>
-            <div>
-                <div class="text-3xl font-bold text-white mb-1">24/7</div>
-                <div class="text-sm text-gray-500">Vector Monitoring</div>
+            <div><div class="text-3xl font-bold text-white mb-1">300%</div><div class="text-sm text-gray-500">Visibility Increase</div></div>
+            <div><div class="text-3xl font-bold text-white mb-1">Top 1</div><div class="text-sm text-gray-500">AI Recommendation</div></div>
+            <div><div class="text-3xl font-bold text-white mb-1">B2B</div><div class="text-sm text-gray-500">Specialized Focus</div></div>
+            <div><div class="text-3xl font-bold text-white mb-1">24/7</div><div class="text-sm text-gray-500">Vector Monitoring</div></div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE (New Section) -->
+    <section id="comparison" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">The Paradigm Shift</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Old Way -->
+                <div class="glass p-8 rounded-2xl border-red-500/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-red-500/50"></div>
+                    <h3 class="text-2xl font-bold mb-6 text-red-400">Old SEO (Dead)</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3"><span class="text-red-500">✕</span> Fighting for 10 blue links</li>
+                        <li class="flex gap-3"><span class="text-red-500">✕</span> Users must click to see you</li>
+                        <li class="flex gap-3"><span class="text-red-500">✕</span> Keywords stuffing</li>
+                        <li class="flex gap-3"><span class="text-red-500">✕</span> Expensive Google Ads</li>
+                    </ul>
+                </div>
+                <!-- New Way -->
+                <div class="glass-strong p-8 rounded-2xl border-blue-500/50 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">GeoMatrix AI (Future)</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex gap-3"><span class="text-blue-500">✓</span> Being the "Single Answer"</li>
+                        <li class="flex gap-3"><span class="text-blue-500">✓</span> AI recommends you directly</li>
+                        <li class="flex gap-3"><span class="text-blue-500">✓</span> Entity & Vector Injection</li>
+                        <li class="flex gap-3"><span class="text-blue-500">✓</span> Zero Ad Spend</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Grid -->
-    <section id="services" class="py-24 px-6">
+    <section id="services" class="py-24 px-6 bg-white/[0.02]">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Our Core Technology</h2>
-            
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
-                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 text-blue-400 text-2xl">
-                        🔗
-                    </div>
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 text-blue-400 text-2xl">🔗</div>
                     <h3 class="text-xl font-bold mb-3">Trust Source Parasitism</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        We leverage high-authority domains like Reddit & Medium to force AI consensus in your favor, bypassing the need for website authority.
-                    </p>
+                    <p class="text-gray-400 leading-relaxed">We leverage high-authority domains like Reddit & Medium to force AI consensus in your favor.</p>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
-                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 text-purple-400 text-2xl">
-                        🧬
-                    </div>
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 text-purple-400 text-2xl">🧬</div>
                     <h3 class="text-xl font-bold mb-3">Entity Vector Injection</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        We structure your corporate data into JSON-LD schemas that LLMs digest easily, turning your brand into a recognized "fact".
-                    </p>
+                    <p class="text-gray-400 leading-relaxed">We structure your corporate data into JSON-LD schemas that LLMs digest easily.</p>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
-                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-6 text-pink-400 text-2xl">
-                        🛡️
-                    </div>
+                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-6 text-pink-400 text-2xl">🛡️</div>
                     <h3 class="text-xl font-bold mb-3">Competitor Erasure</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        Advanced semantic strategies to minimize competitor visibility in "Best of" lists generated by AI models.
-                    </p>
+                    <p class="text-gray-400 leading-relaxed">Advanced semantic strategies to minimize competitor visibility in "Best of" lists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS (New Section) -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Deployment Protocol</h2>
+            <div class="space-y-8">
+                <div class="flex gap-6">
+                    <div class="flex-none w-12 h-12 rounded-full bg-blue-900/50 border border-blue-500 flex items-center justify-center font-bold text-blue-400">01</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Audit & Vector Analysis</h3>
+                        <p class="text-gray-400">We scan how ChatGPT currently perceives your brand vs. your competitors.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="flex-none w-12 h-12 rounded-full bg-blue-900/50 border border-blue-500 flex items-center justify-center font-bold text-blue-400">02</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Content Matrix Deployment</h3>
+                        <p class="text-gray-400">We publish 50+ optimized articles on high-authority platforms (Medium, Quora, Reddit).</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="flex-none w-12 h-12 rounded-full bg-blue-900/50 border border-blue-500 flex items-center justify-center font-bold text-blue-400">03</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Data Structure Injection</h3>
+                        <p class="text-gray-400">We rewrite your site's metadata into JSON-LD that LLMs can "read" instantly.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="flex-none w-12 h-12 rounded-full bg-blue-900/50 border border-blue-500 flex items-center justify-center font-bold text-blue-400">04</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Domination</h3>
+                        <p class="text-gray-400">Within 4-8 weeks, your brand begins to appear as the primary recommendation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (New Section) -->
+    <section class="py-24 px-6 bg-white/[0.02]">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">FAQ</h2>
+            <div class="space-y-6">
+                <div class="glass p-6 rounded-xl">
+                    <h4 class="font-bold mb-2">Why not just do Google SEO?</h4>
+                    <p class="text-gray-400 text-sm">Google traffic is dropping. B2B buyers are moving to AI for research. If you aren't in the AI, you are invisible.</p>
+                </div>
+                <div class="glass p-6 rounded-xl">
+                    <h4 class="font-bold mb-2">How long does it take?</h4>
+                    <p class="text-gray-400 text-sm">Unlike SEO which takes 6-12 months, GEO strategies often show results in 3-6 weeks due to the freshness bias of LLMs.</p>
+                </div>
+                <div class="glass p-6 rounded-xl">
+                    <h4 class="font-bold mb-2">Is this safe for my brand?</h4>
+                    <p class="text-gray-400 text-sm">Yes. We use "White Hat" content strategies, focusing on high-quality, data-rich content that AI models naturally prefer.</p>
                 </div>
             </div>
         </div>
