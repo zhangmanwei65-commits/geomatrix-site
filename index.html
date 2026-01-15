@@ -2,13 +2,15 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GeoMatrix AI | Total Generative Engine Optimization</title>
     <meta name="description" content="Dominate every AI model. We inject your brand into ChatGPT, Claude, Gemini, and Llama.">
+    
+    <!-- 强制预加载 Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- JSON-LD (SEO 身份证 - 必不可少) -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -29,7 +31,7 @@
                         display: ['Space Grotesk', 'sans-serif']
                     },
                     colors: {
-                        brand: { dark: '#0f172a' }, /* 改为深蓝 */
+                        brand: { dark: '#0f172a' },
                         whatsapp: '#25D366'
                     },
                     animation: {
@@ -46,45 +48,43 @@
             }
         }
     </script>
+    
+    <!-- 核心样式 (直接写死，防止手机端白屏) -->
     <style>
-        /* 核心背景：使用 Cursor 同款深蓝渐变 */
-        body { 
+        html, body {
+            background-color: #0f172a; /* 强制深蓝底色 */
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0; 
+            color: #e2e8f0;
+            overflow-x: hidden; /* 禁止左右晃动 */
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* 赛博网格背景 (叠加在渐变上，增加科技感) */
+        /* 赛博网格 */
         .bg-grid {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
         }
         
-        /* 玻璃质感卡片 (适配蓝色背景) */
+        /* 卡片样式 */
         .glass { 
-            background: rgba(30, 41, 59, 0.4); /* 稍微带点蓝色的玻璃 */
+            background: rgba(30, 41, 59, 0.4); 
             backdrop-filter: blur(12px); 
             border: 1px solid rgba(255, 255, 255, 0.08); 
         }
-        .glass:hover { 
-            background: rgba(30, 41, 59, 0.7); 
-            border-color: rgba(59, 130, 246, 0.5); 
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); 
-            transform: translateY(-5px); 
-            transition: all 0.3s ease; 
-        }
         
-        /* Logo 卡片 */
+        /* Logo 卡片适配 */
         .logo-card { 
-            display: flex; align-items: center; justify-content: center; height: 80px; 
+            display: flex; align-items: center; justify-content: center; 
+            height: 70px; /* 手机端稍微调小 */
             border-radius: 12px; background: rgba(255,255,255,0.02); 
-            border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; 
+            border: 1px solid rgba(255,255,255,0.05); 
         }
-        .logo-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
         
-        /* 图标盒子 (矢量图) */
+        /* 图标盒子 */
         .icon-box {
             width: 50px; height: 50px; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
@@ -95,56 +95,58 @@
 
         /* 悬浮按钮 */
         .floating-btn {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
-            width: 60px; height: 60px; border-radius: 50%;
+            position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+            width: 56px; height: 56px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             background: #25D366; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-            transition: transform 0.3s;
         }
-        .floating-btn:hover { transform: scale(1.1); }
 
-        /* 数字跳动样式 */
+        /* 数字跳动 */
         .counter { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #60A5FA; }
+        
+        /* 走马灯容器 */
+        .marquee-container {
+            width: 100%; overflow: hidden; white-space: nowrap; position: relative;
+        }
     </style>
 </head>
-<body class="antialiased relative">
+<body class="antialiased">
 
     <!-- 背景网格 -->
-    <div class="fixed inset-0 bg-grid z-[-1] pointer-events-none"></div>
+    <div class="bg-grid"></div>
 
-    <!-- 导航栏 (半透明深蓝) -->
-    <nav class="fixed w-full z-50 top-0 border-b border-white/5 bg-[#0f172a]/80 backdrop-blur-xl">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">G</div>
-                <span class="font-display font-bold text-xl tracking-tight text-white">GeoMatrix<span class="text-blue-500">.AI</span></span>
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 top-0 border-b border-white/5 bg-[#0f172a]/90 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-16 md:h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2 md:gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center font-bold text-white shadow-lg">G</div>
+                <span class="font-display font-bold text-lg md:text-xl tracking-tight text-white">GeoMatrix<span class="text-blue-500">.AI</span></span>
             </div>
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/1234567890" target="_blank" class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition">WhatsApp</a>
-                <a href="#contact" class="px-5 py-2 rounded bg-white text-black font-bold text-sm hover:bg-gray-200 transition">Get Started</a>
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="px-4 py-2 rounded bg-white text-black font-bold text-xs md:text-sm hover:bg-gray-200 transition">Get Started</a>
             </div>
         </div>
     </nav>
 
     <!-- 主视觉区 -->
-    <main class="pt-40 pb-12 px-6">
+    <main class="pt-32 pb-12 px-6 overflow-hidden">
         <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 mb-6">
                 <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                <span class="text-xs font-bold text-blue-300 tracking-widest uppercase">The Future of B2B Search</span>
+                <span class="text-[10px] md:text-xs font-bold text-blue-300 tracking-widest uppercase">The Future of B2B Search</span>
             </div>
-            <h1 class="font-display text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
+            <h1 class="font-display text-4xl md:text-8xl font-bold tracking-tight mb-6 leading-tight">
                 We Inject Your Brand Into <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 animate-pulse">Every AI Model.</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">Every AI Model.</span>
             </h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                Don't just rank on Google. Be the <strong>only answer</strong> on ChatGPT, Claude, and Gemini. We engineer consensus inside the neural networks.
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                Don't just rank on Google. Be the <strong>only answer</strong> on ChatGPT, Claude, and Gemini.
             </p>
-            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16">
-                <a href="https://wa.me/1234567890" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-500 transition shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+            <div class="flex flex-col gap-4 justify-center items-center mb-12">
+                <a href="https://wa.me/1234567890" target="_blank" class="w-full md:w-auto px-8 py-4 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-600/30">
                     Start Dominating
                 </a>
-                <a href="#audit" class="w-full sm:w-auto px-8 py-4 rounded-lg glass text-white font-bold hover:bg-white/10 transition">
+                <a href="#audit" class="w-full md:w-auto px-8 py-4 rounded-lg glass text-white font-bold hover:bg-white/10 transition">
                     View Protocol
                 </a>
             </div>
@@ -152,61 +154,59 @@
     </main>
 
     <!-- 数据统计 -->
-    <section class="py-12 border-y border-white/5 bg-white/[0.01]">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+    <section class="py-10 border-y border-white/5 bg-white/[0.01]">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-3 gap-4 text-center">
             <div>
-                <div class="text-4xl md:text-5xl counter" data-target="10000">0</div>
-                <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest">Vectors Injected</p>
+                <div class="text-2xl md:text-5xl counter" data-target="10000">0</div>
+                <p class="text-gray-400 text-[10px] md:text-sm mt-1 uppercase tracking-widest">Vectors</p>
             </div>
             <div>
-                <div class="text-4xl md:text-5xl counter" data-target="500">0</div>
-                <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest">B2B Clients</p>
+                <div class="text-2xl md:text-5xl counter" data-target="500">0</div>
+                <p class="text-gray-400 text-[10px] md:text-sm mt-1 uppercase tracking-widest">Clients</p>
             </div>
             <div>
-                <div class="text-4xl md:text-5xl counter" data-target="98">0</div>
-                <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest">Success Rate %</p>
+                <div class="text-2xl md:text-5xl counter" data-target="98">0</div>
+                <p class="text-gray-400 text-[10px] md:text-sm mt-1 uppercase tracking-widest">Success %</p>
             </div>
         </div>
     </section>
 
-    <!-- 走马灯 (无限滚动) -->
-    <div class="py-8 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+    <!-- 走马灯 -->
+    <div class="py-6 border-b border-white/5 bg-white/[0.01] marquee-container">
         <div class="flex whitespace-nowrap animate-scroll">
-            <div class="flex gap-12 items-center mx-6">
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CHATGPT</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CLAUDE</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">GEMINI</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">PERPLEXITY</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">LLAMA 3</span></span><span class="text-blue-500">•</span>
+            <div class="flex gap-8 md:gap-12 items-center mx-4">
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CHATGPT</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CLAUDE</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">GEMINI</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">PERPLEXITY</span></span><span class="text-blue-500">•</span>
             </div>
-            <div class="flex gap-12 items-center mx-6">
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CHATGPT</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CLAUDE</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">GEMINI</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">PERPLEXITY</span></span><span class="text-blue-500">•</span>
-                <span class="text-gray-400 font-mono text-sm tracking-widest">DOMINATING <span class="text-white font-bold">LLAMA 3</span></span><span class="text-blue-500">•</span>
+            <div class="flex gap-8 md:gap-12 items-center mx-4">
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CHATGPT</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">CLAUDE</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">GEMINI</span></span><span class="text-blue-500">•</span>
+                <span class="text-gray-400 font-mono text-xs md:text-sm tracking-widest">DOMINATING <span class="text-white font-bold">PERPLEXITY</span></span><span class="text-blue-500">•</span>
             </div>
         </div>
     </div>
 
-    <!-- Logo 墙 (官方色) -->
+    <!-- Logo 墙 (手机端双列) -->
     <section class="py-12 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="logo-card group"><svg class="h-8 w-auto fill-white" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.0462 6.0462 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a6.374 6.374 0 0 1 .09 4.0232 4.4826 4.4826 0 0 1-4.5465 6.1058zM1.7083 13.1979a4.4817 4.4817 0 0 1-.6766-3.2608l.0965.0527 4.2586 2.4591a.811.811 0 0 0 .8196 0l5.8357-3.3665v2.336a6.374 6.374 0 0 1-3.5154 2.9691 4.4864 4.4864 0 0 1-6.8184-1.1896zm3.7525-9.4566a4.4836 4.4836 0 0 1 2.6225-.6729l-.163.088-4.7414 2.7368a.8019.8019 0 0 0-.402.691v6.7092l-2.01-1.1623a6.373 6.373 0 0 1-.145-4.0304 4.4855 4.4855 0 0 1 4.8389-4.3594zm12.3558 2.2234a4.4855 4.4855 0 0 1 .6766 3.2618l-.0965-.0527-4.2506-2.4552a.811.811 0 0 0-.8196 0l-5.8763 3.3905V7.7736a6.374 6.374 0 0 1 3.5509-2.9853 4.4836 4.4836 0 0 1 6.8155 1.1881zM8.6558 12.1234l3.5821-2.0666 3.5749 2.0666v4.1333l-3.5749 2.0666-3.5821-2.0666zm13.466 1.0528a4.4855 4.4855 0 0 1-4.8189 4.3533 4.4817 4.4817 0 0 1-2.6265.6724l.163-.088 4.7414-2.7368a.8019.8019 0 0 0 .402-.691v-6.7092l2.01 1.1623a6.373 6.373 0 0 1 .129 4.037z"/></svg></div>
-                <div class="logo-card group"><svg class="h-6 w-auto fill-[#4285F4]" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></div>
-                <div class="logo-card group"><span class="font-serif font-bold text-xl text-[#d97757]">Claude</span></div>
-                <div class="logo-card group"><svg class="h-6 w-auto fill-[#22bfa5]" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5 2.5 5 2.5 5-2.5-5-2.5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                <div class="logo-card group"><svg class="h-6 w-auto fill-[#0668E1]" viewBox="0 0 24 24"><path d="M16.632 11.886c-.958-.616-1.516-1.04-1.516-1.78 0-.69.57-1.25 1.25-1.25.66 0 1.25.56 1.25 1.25h2.5c0-2.07-1.68-3.75-3.75-3.75s-3.75 1.68-3.75 3.75c0 1.45.96 2.45 2.46 3.38 1.03.64 1.55 1.06 1.55 1.8 0 .69-.56 1.25-1.25 1.25-.69 0-1.25-.56-1.25-1.25h-2.5c0 2.07 1.68 3.75 3.75 3.75s3.75-1.68 3.75-3.75c0-1.45-.96-2.45-2.46-3.38z"/></svg></div>
-                <div class="logo-card group"><svg class="h-6 w-auto" viewBox="0 0 24 24"><path fill="#F25022" d="M11.4 11.4H0V0h11.4v11.4z"/><path fill="#7FBA00" d="M24 11.4H12.6V0H24v11.4z"/><path fill="#00A4EF" d="M11.4 24H0V12.6h11.4V24z"/><path fill="#FFB900" d="M24 24H12.6V12.6H24V24z"/></svg></div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+                <div class="logo-card group"><svg class="h-6 md:h-8 w-auto fill-white" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.0462 6.0462 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a6.374 6.374 0 0 1 .09 4.0232 4.4826 4.4826 0 0 1-4.5465 6.1058zM1.7083 13.1979a4.4817 4.4817 0 0 1-.6766-3.2608l.0965.0527 4.2586 2.4591a.811.811 0 0 0 .8196 0l5.8357-3.3665v2.336a6.374 6.374 0 0 1-3.5154 2.9691 4.4864 4.4864 0 0 1-6.8184-1.1896zm3.7525-9.4566a4.4836 4.4836 0 0 1 2.6225-.6729l-.163.088-4.7414 2.7368a.8019.8019 0 0 0-.402.691v6.7092l-2.01-1.1623a6.373 6.373 0 0 1-.145-4.0304 4.4855 4.4855 0 0 1 4.8389-4.3594zm12.3558 2.2234a4.4855 4.4855 0 0 1 .6766 3.2618l-.0965-.0527-4.2506-2.4552a.811.811 0 0 0-.8196 0l-5.8763 3.3905V7.7736a6.374 6.374 0 0 1 3.5509-2.9853 4.4836 4.4836 0 0 1 6.8155 1.1881zM8.6558 12.1234l3.5821-2.0666 3.5749 2.0666v4.1333l-3.5749 2.0666-3.5821-2.0666zm13.466 1.0528a4.4855 4.4855 0 0 1-4.8189 4.3533 4.4817 4.4817 0 0 1-2.6265.6724l.163-.088 4.7414-2.7368a.8019.8019 0 0 0 .402-.691v-6.7092l2.01 1.1623a6.373 6.373 0 0 1 .129 4.037z"/></svg></div>
+                <div class="logo-card group"><svg class="h-5 md:h-6 w-auto fill-[#4285F4]" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></div>
+                <div class="logo-card group"><span class="font-serif font-bold text-lg md:text-xl text-[#d97757]">Claude</span></div>
+                <div class="logo-card group"><svg class="h-5 md:h-6 w-auto fill-[#22bfa5]" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5 2.5 5 2.5 5-2.5-5-2.5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <div class="logo-card group"><svg class="h-5 md:h-6 w-auto fill-[#0668E1]" viewBox="0 0 24 24"><path d="M16.632 11.886c-.958-.616-1.516-1.04-1.516-1.78 0-.69.57-1.25 1.25-1.25.66 0 1.25.56 1.25 1.25h2.5c0-2.07-1.68-3.75-3.75-3.75s-3.75 1.68-3.75 3.75c0 1.45.96 2.45 2.46 3.38 1.03.64 1.55 1.06 1.55 1.8 0 .69-.56 1.25-1.25 1.25-.69 0-1.25-.56-1.25-1.25h-2.5c0 2.07 1.68 3.75 3.75 3.75s3.75-1.68 3.75-3.75c0-1.45-.96-2.45-2.46-3.38zm-9.264 0c-.958-.616-1.516-1.04-1.516-1.78 0-.69.57-1.25 1.25-1.25.66 0 1.25.56 1.25 1.25h2.5c0-2.07-1.68-3.75-3.75-3.75s-3.75 1.68-3.75 3.75c0 1.45.96 2.45 2.46 3.38 1.03.64 1.55 1.06 1.55 1.8 0 .69-.56 1.25-1.25 1.25-.69 0-1.25-.56-1.25-1.25h-2.5c0 2.07 1.68 3.75 3.75 3.75s3.75-1.68 3.75-3.75c0-1.45-.96-2.45-2.46-3.38z"/></svg></div>
+                <div class="logo-card group"><svg class="h-5 md:h-6 w-auto" viewBox="0 0 24 24"><path fill="#F25022" d="M11.4 11.4H0V0h11.4v11.4z"/><path fill="#7FBA00" d="M24 11.4H12.6V0H24v11.4z"/><path fill="#00A4EF" d="M11.4 24H0V12.6h11.4V24z"/><path fill="#FFB900" d="M24 24H12.6V12.6H24V24z"/></svg></div>
             </div>
         </div>
     </section>
 
-    <!-- 服务介绍 (矢量图标) -->
-    <section id="audit" class="py-24 px-6">
+    <!-- 服务介绍 -->
+    <section id="audit" class="py-12 md:py-24 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="font-display text-4xl font-bold mb-16 text-center">The GeoMatrix Protocol</h2>
+            <h2 class="font-display text-3xl md:text-4xl font-bold mb-12 text-center">The GeoMatrix Protocol</h2>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="glass p-8 rounded-2xl transition group">
                     <div class="icon-box"><svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
@@ -223,32 +223,17 @@
                     <h3 class="text-xl font-bold text-white mb-3">Structured Data Poisoning</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">We rewrite your digital footprint into JSON-LD and semantic HTML that forces AI to recognize you as an Entity.</p>
                 </div>
-                <div class="glass p-8 rounded-2xl transition group">
-                    <div class="icon-box"><svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Competitor Erasure</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Strategic content deployment that dilutes competitor relevance in comparative queries.</p>
-                </div>
-                <div class="glass p-8 rounded-2xl transition group">
-                    <div class="icon-box"><svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Custom Agent Training</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">We build custom GPTs and Agents that serve as lead magnets for your specific niche.</p>
-                </div>
-                <div class="glass p-8 rounded-2xl transition group">
-                    <div class="icon-box"><svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Sentiment Control</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Ensuring the AI not only mentions you but speaks of you with "High Trust" and "Premium" sentiment.</p>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- 底部 -->
-    <footer id="contact" class="border-t border-white/5 py-20 bg-black">
+    <footer id="contact" class="border-t border-white/5 py-12 md:py-20 bg-black/50">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="font-display text-3xl md:text-5xl font-bold mb-8">Ready to Own the Matrix?</h2>
-            <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Stop competing for clicks. Start dominating the answers. Schedule your confidential vector audit today.</p>
+            <h2 class="font-display text-2xl md:text-5xl font-bold mb-8">Ready to Own the Matrix?</h2>
+            <p class="text-gray-400 mb-12 max-w-2xl mx-auto text-sm md:text-base">Stop competing for clicks. Start dominating the answers.</p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 mb-16">
                 <a href="https://wa.me/1234567890" target="_blank" class="px-8 py-4 rounded-lg bg-green-600 hover:bg-green-500 text-white font-bold transition flex items-center justify-center gap-2">
                     WhatsApp Us
                 </a>
@@ -257,7 +242,7 @@
                 </a>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-gray-600">
                 <div class="flex items-center gap-2">
                     <div class="w-4 h-4 bg-blue-600 rounded-sm"></div>
                     <span class="font-bold text-gray-400">GeoMatrix AI</span>
